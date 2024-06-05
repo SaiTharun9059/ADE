@@ -1,0 +1,27 @@
+{
+	"name": "TEST_TABLE1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_DB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "EMPID",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "NAME",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Test"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

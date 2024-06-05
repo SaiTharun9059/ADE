@@ -1,0 +1,54 @@
+{
+	"name": "storeprocedure_parameter",
+	"properties": {
+		"activities": [
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[EMP_RANGE_SELECT]",
+					"storedProcedureParameters": {
+						"ENDDATE": {
+							"value": {
+								"value": "@pipeline().parameters.startDate",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						},
+						"STARTDATE": {
+							"value": {
+								"value": "@pipeline().parameters.endDate",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_SQL_DB",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"startDate": {
+				"type": "string"
+			},
+			"endDate": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-05-25T15:36:30Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

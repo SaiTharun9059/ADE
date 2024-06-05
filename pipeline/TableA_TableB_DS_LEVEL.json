@@ -1,0 +1,62 @@
+{
+	"name": "TableA_TableB_DS_LEVEL",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_input_output_table",
+						"type": "DatasetReference",
+						"parameters": {
+							"tbl_Name": "TBL_1"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_input_output_table",
+						"type": "DatasetReference",
+						"parameters": {
+							"tbl_Name": "TBL_2"
+						}
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-05-18T13:31:49Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

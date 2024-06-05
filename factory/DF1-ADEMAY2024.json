@@ -1,0 +1,9 @@
+{
+	"name": "DF1-ADEMAY2024",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5a006143-2a93-4b7b-9013-9a167c72bcbf",
+		"tenantId": "36398bb1-6290-41c1-876c-26faf88147a9"
+	}
+}
